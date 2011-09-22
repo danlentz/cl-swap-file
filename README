@@ -1,0 +1,26 @@
+CL-SWAP-FILE
+Copyright (c) 2008 Sami Makinen
+
+Swap file was originally designed for cl-btree to manage disk blocks.
+Swap file provides mechanism to create a stream for reading and
+writing and the stream is automatically converted to a managed
+sequence of disk blocks. See the unit tests for more detail.
+
+Swap file uses cl-wal which provides simple write-ahead log for the
+swap file.  cl-wal works as a journal providing atomicy and durability
+for a stored data.
+
+Current implementation has been tested with SBCL.  Project was
+originally at alien-consader.org and is now made available at
+SourceForge.
+
+cl-swap-file depends on following projects: 
+  - trivial-garbage
+  - cl-binary-file (http://cl-binary-file.sourceforge.net),
+  - cl-wal (http://cl-wal.sourceforge.net),
+
+cl-swap-file no longer depends on following projects:
+  - cl-unit-test (http://cl-unit-test.sourceforge.net),
+  - cl-toolbox (http://cl-toolbox.sourceforge.net).
+
+cl-swap-file is utilized in cl-btree and clufs projects.

@@ -1,0 +1,69 @@
+2011-01-16  sami-makinen
+
+	* block-stream.lisp: Changed SBCL specific sb-gray streams to
+	  trivial-gray-streams for portability.
+
+2011-01-06  sami-makinen
+
+	* ChangeLog: Added ChangeLog.
+	* README: Updated README.
+	* cl-swap-file-trunk.asd, package.lisp, test/unit/swap-file.lisp,
+	  vendor, vendor/lisp-unit.lisp: Refactored swap-file to use
+	  lisp-unit by Christopher K. Riesbeck.
+	  Note: vendor dir contains slightly modified lisp-unit (with
+	  assert-typep).
+	  Unit tests were refactored with following modifications:
+	  - def-test (name) -> define-test name
+	  - assert-typep obj type -> assert-typep type obj
+	  - assert-condition error -> assert-error 'error
+	  - unit tests are in their own package
+	  - all symbols need to have package specification
+
+2011-01-03  sami-makinen
+
+	* cl-swap-file-trunk.asd, package.lisp, swap-file.lisp: Removed
+	  obsolete dependency to cl-toolbox.
+	  Added dependency to trivial-garbage.
+	  Refactored sbcl specific weak pointer handling to trivial garbage
+	  based handling.
+
+2011-01-02  sami-makinen
+
+	* cl-swap-file-trunk.asd, swap-file.asd: Renamed asd file to follow
+	  project name and svn version.
+	* package.lisp, swap-file.asd: Updated system name according to
+	  project name.
+	  Updated system dependencies.
+	  Removed org.alien-consader from package. Site does not exist any
+	  longer.
+
+2010-12-30  sami-makinen
+
+	* loader.lisp, swap-file.asd: Changed version according to the svn
+	  version.
+	* loader.lisp: Added loader file.
+	* README, block-stream.lisp, swap-file.lisp: Removed some
+	  uncommented code
+	  Added some doc strings.
+
+2010-12-05  sami-makinen
+
+	* test/unit/swap-file.lisp: Added two tests for setting
+	  file-position explicitly on block stream. Tests discovered a bug
+	  at binary-file.
+	  Patch will follow.
+	* swap-file.asd: Added missing dependency to binary-file.
+
+2010-12-04  sami-makinen
+
+	* swap-file.lisp: A bug fix. write-uint8-to-disk constructed an
+	  array from written data but returned value from write-uint8 is
+	  already an array.
+	* LICENSE, README: Added LICENSE and README files.
+
+2010-12-01  sami-makinen
+
+	* ., block-stream.lisp, debug.lisp, package.lisp, swap-file.asd,
+	  swap-file.lisp, test, test/unit, test/unit/swap-file.lisp:
+	  Initial import.
+
